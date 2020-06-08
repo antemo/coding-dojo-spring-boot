@@ -21,16 +21,8 @@ logging:
   pattern:
     console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS z}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
   level:
-    root: info
+    root: debug
     com.assignment.spring: debug
 weather:
-  root: http://api.openweathermap.org/data/2.5
-  # apiKey is included in startup command to avoid publishing API key to public repository
-  # this property can be set to shared API key if repository is private
-#  apiKey:
-datasource:
-  host: localhost
-  database: dojo
-  username: postgres
-  # in case of non-local environment this should not be included here to avoid publishing DB password to public repository
-  password: postgres
+  root: not_used
+  apiKey: not_used
