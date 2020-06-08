@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(UserController.BASE_USERS_URL)
 public class UserController {
@@ -54,7 +56,7 @@ public class UserController {
 	@PutMapping
 	@ResponseStatus(HttpStatus.OK)
 	@PreAuthorize("hasAuthority('EDIT_USERS') or #user.id == principal.id")
-	public Mono<Void> update(@RequestBody final UserDto user) {
+	public Mono<Void> update(@RequestBody @Valid final UserDto user) {
 		LOGGER.info("Updating user with ID {}", user.getId());
 
 		return userService.update(user);
